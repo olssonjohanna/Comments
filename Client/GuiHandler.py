@@ -145,10 +145,10 @@ class GuiHandler:
             elif text == "not fine":
                 tkinter.messagebox.showinfo(message="register is failed")#om texten är "not fine" gick det inte att registrera
         else:
-            self.chattContents.config(state = tkinter.NORMAL)
-            self.chattContents.insert(tkinter.END,text+"\n")
-            self.chattContents.config(state = tkinter.DISABLED)
-            self.entryOfUser.delete(0,tkinter.END)
+            self.chattContents.config(state = tkinter.NORMAL)#gör så att chattContents rutan kan skrivas till
+            self.chattContents.insert(tkinter.END,text+"\n")#lägger in meddelandet
+            self.chattContents.config(state = tkinter.DISABLED)#gör den till read-only
+            self.entryOfUser.delete(0,tkinter.END)#rensar user entrien
 
     def showWarningMsg(self):
-        tkinter.messagebox.showwarning(message="server is not found")
+        tkinter.messagebox.showwarning(message="server is not found")#varning meddelande om servern ej är funnen
