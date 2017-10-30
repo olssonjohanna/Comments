@@ -12,13 +12,17 @@ class SocketHandler:
     def setGuiHandler(self,guiHandler_):
         self.guiHandler = guiHandler_
 
+#Function för Close knappen som stänger av hela
     def closeEveryThing(self):
         self.serverSocket.close()
         self.users.writeUsersToFile()
         sys.exit(0)
 
+#Skapar en function för att Starta Acceptering
     def startAccepting(self):
+        #Lägger det i en While loop för att acepteraa flera clienter
         while True:
+            #testar koden annars om det blir error så hoppar det av till except(pass)
             try:
                 clientSocket, clientAddr = self.serverSocket.accept()
                 self.list_of_unknown_clientSockets.append(clientSocket)
@@ -27,7 +31,7 @@ class SocketHandler:
 
             except:
                 pass
-
+#Function
     def startToAcceptConnection(self,port):
         try:
             self.serverSocket.bind(('',int(port)))
@@ -43,12 +47,12 @@ class SocketHandler:
 
         _thread.start_new_thread(self.startAccepting,())
         return "succeed"
-
+#en function för att skicka texten och visa på clients chatt fönster
     def sendAndShowMsg(self, text):
         self.guiHandler.showMessage(text)
         for clientSock in self.list_of_known_clientSockets:
             clientSock.send(str.encode(text))
-
+#skapa en tråd som recievar
     def startReceiverThread(self, clientSocket, clientAddr):
         _thread.start_new_thread(self.startReceiving,(clientSocket,clientAddr,))
 
@@ -65,6 +69,7 @@ class SocketHandler:
 
             self.listenToknownClinet(clientSocket,clientAddr,username)
 
+#
     def listenToUnknownClinet(self,clientSocket, clientAddr):
         while True:
             try:
