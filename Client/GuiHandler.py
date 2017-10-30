@@ -1,7 +1,6 @@
 import tkinter
 import tkinter.messagebox
 
-#
 class GuiHandler:
     def __init__(self,socketHandler_):
         self.socketHandler = socketHandler_ #Tar in socketen för att kunna använda sig utav den vid skickande av meddelande
@@ -151,4 +150,4 @@ class GuiHandler:
             self.entryOfUser.delete(0,tkinter.END)#rensar user entrien
 
     def showWarningMsg(self):
-        tkinter.messagebox.showwarning(message="server is not found")#varning meddelande om servern ej är funnen#
+        tkinter.messagebox.showwarning(message="server is not found")#varning meddelande om servern ej är funnen
