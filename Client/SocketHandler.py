@@ -1,6 +1,8 @@
 import socket
 import _thread
 
+#
+
 class SocketHandler:
     def __init__(self):
         self.clientSocket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
