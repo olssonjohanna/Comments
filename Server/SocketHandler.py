@@ -40,12 +40,13 @@ class SocketHandler:
             return "failed"
         #börjar lyssna
         self.serverSocket.listen()
-        #skapar en lista för clients
+        #skapar en lista för clients som kan logga en
         self.list_of_known_clientSockets = []
-        #skapar en lista för client adress
+        #skapar en lista för client adress som kan logga in
         self.list_of_known_clientAddr = []
-
+        #lista för clients som inte har inloggnings uppgifter
         self.list_of_unknown_clientSockets = []
+        #lista för client adress som inte har inloggnings uppgifter
         self.list_of_unknown_clientAddr = []
         #startar trådet för att börja acceptera
         _thread.start_new_thread(self.startAccepting,())
