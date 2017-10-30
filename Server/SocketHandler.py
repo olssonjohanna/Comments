@@ -56,7 +56,7 @@ class SocketHandler:
         self.guiHandler.showMessage(text)
         for clientSock in self.list_of_known_clientSockets:
             clientSock.send(str.encode(text))
-#starta trådet som recievar
+#starta trådet  som recievar
     def startReceiverThread(self, clientSocket, clientAddr):
         _thread.start_new_thread(self.startReceiving,(clientSocket,clientAddr,))
 
