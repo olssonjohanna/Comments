@@ -1,7 +1,7 @@
 import socket
 import _thread
 import sys
-from Comments.Server.Users import CollectionOfUsers
+from Server.Users import CollectionOfUsers
 
 class SocketHandler:
     def __init__(self):
