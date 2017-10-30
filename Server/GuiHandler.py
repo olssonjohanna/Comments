@@ -72,11 +72,14 @@ class GuiHandler:
 
     #displays messages from sever.
     def showMessage(self,text):
+        #gör chattrutan writeable
         self.chattContents.config(state = tkinter.NORMAL)
         self.chattContents.insert(tkinter.END,text+"\n")
 
     #shows warning messages upton incorrect port binding.
+        #gör den read-only
         self.chattContents.config(state = tkinter.DISABLED)
+        #rensar entryOfUser
         self.entryOfUser.delete(0,tkinter.END)
     def showWarningMsg(self):
         tkinter.messagebox.showwarning(message="could not bind port")
