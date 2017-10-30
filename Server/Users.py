@@ -71,8 +71,10 @@ class CollectionOfUsers:
 
         return "non"
 
-#KOMMENTERA
+#Läser users ifrån en textfil
     def readUsersFromFile(self):
+
+        #Här försöker vi öppna textfilen och splittar den. Om inte filen lyckas öppna: returna False
         try:
             file = open("users.txt",'r')
             allLines = file.read().split('\n')
@@ -80,9 +82,12 @@ class CollectionOfUsers:
         except:
             return False
 
+        #Vi skapar en variable för att deklarera att det ska börja på 0
         index_of_current_line = 0
 
+        #En oändlig loop som läser varje rad och ökar sedan oavstående varaibel med 1 för att hoppa ner en rad
         while True:
+            #För varje sektion nedan så läser den username, password etc.
             username = allLines[index_of_current_line]
             index_of_current_line+=1
             if username == "":
@@ -108,8 +113,10 @@ class CollectionOfUsers:
             if emptyLine != "":
                 return False
 
+            #Här kallar den på funktioen add_user och skickar information som vi läst ifrån filen
             self.add_user(username,password,email,name)
 
+            #När vår variable index_of_current_line når samma längst som AllLines så returnerar vi True
             if index_of_current_line == len(allLines):
                 return True
 
