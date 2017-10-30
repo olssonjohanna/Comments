@@ -151,4 +151,4 @@ class GuiHandler:
             self.entryOfUser.delete(0,tkinter.END)#rensar user entrien
 
     def showWarningMsg(self):
-        tkinter.messagebox.showwarning(message="server is not found")#varning meddelande om servern ej är funnen
+        tkinter.messagebox.showwarning(message="server is not found")#varning meddelande om servern ej är funnen#
