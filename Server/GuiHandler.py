@@ -29,6 +29,7 @@ class GuiHandler:
         scroll.grid(row = 0, column = 1, sticky=tkinter.N+tkinter.S)
         self.chattContents = tkinter.Text(self.root, yscrollcommand  = scroll.set)
         self.chattContents.grid(row = 0,column = 0)
+        self.chattContents.config(state=tkinter.DISABLED)
         scroll.config(command=self.chattContents.yview)
         self.entryOfUser = tkinter.Entry(self.root)
         self.entryOfUser.grid(row = 1,column = 0)
@@ -48,7 +49,9 @@ class GuiHandler:
         self.startMainGui()
 
     def showMessage(self,text):
+        self.chattContents.config(state = tkinter.NORMAL)
         self.chattContents.insert(tkinter.END,text+"\n")
-
+        self.chattContents.config(state = tkinter.DISABLED)
+        self.entryOfUser.delete(0,tkinter.END)
     def showWarningMsg(self):
         tkinter.messagebox.showwarning(message="could not bind port")

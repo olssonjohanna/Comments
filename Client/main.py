@@ -1,7 +1,5 @@
-from Client.GuiHandler import GuiHandler
-from Client.SocketHandler import SocketHandler
-
-#test
+from Comments.Client.GuiHandler import GuiHandler
+from Comments.Client.SocketHandler import SocketHandler
 
 socketHandler = SocketHandler()
 guiHandler = GuiHandler(socketHandler)
