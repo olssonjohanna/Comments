@@ -126,19 +126,21 @@ class GuiHandler:
         but = tkinter.Button(self.registerChild,text = "register", command = confirmRegister)
         but.grid(row = 4, column = 0)
 
+    #main calls this
     def startGui(self):
         self.chattIsAllowed = False#kollar om man får chatta. om False så startas login och register rutan annars startas chattrutan
         self.startIntroGui()
         if self.chattIsAllowed == True:
             self.startMainGui()
 
+    #method called reciever in ClientSocketHandler
     def showMessage(self,text):#Kollar om användaren får komma in i chattrutan
         if self.chattIsAllowed == False:
-            if text == "ok": #om den text som returneras är "ok" får användaren komma in i chattrutan
+            if text == "ok": #om den text som tas in är "ok" får användaren komma in i chattrutan
                 self.chattIsAllowed = True
                 self.choiceRoot.destroy()#dödar login/register rutan
             elif text == "fine":
-                tkinter.messagebox.showinfo(message="register is passed")#om den returnerade texten är "fine" gick det att registrera användaren
+                tkinter.messagebox.showinfo(message="register is passed")#om den texten är "fine" gick det att registrera användaren
             elif text == "not ok":
                 tkinter.messagebox.showinfo(message="log in failed")#om texten är "not ok" gick det inte att logga in
             elif text == "not fine":
