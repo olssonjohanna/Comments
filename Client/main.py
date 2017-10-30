@@ -1,7 +1,7 @@
 from Client.GuiHandler import GuiHandler
 from Client.SocketHandler import SocketHandler
 
-#
+#test
 
 socketHandler = SocketHandler()
 guiHandler = GuiHandler(socketHandler)
