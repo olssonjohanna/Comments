@@ -5,6 +5,7 @@ from Server.Users import CollectionOfUsers
 
 class SocketHandler:
     def __init__(self):
+        #skapar socket
         self.serverSocket= socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.users = CollectionOfUsers()
         self.users.readUsersFromFile()
@@ -14,9 +15,9 @@ class SocketHandler:
 
 #Function för Close knappen som stänger av hela
     def closeEveryThing(self):
-        self.serverSocket.close()
-        self.users.writeUsersToFile()
-        sys.exit(0)
+        self.serverSocket.close() #stänger av server socket
+        self.users.writeUsersToFile() #skriver in Useres i text fil
+        sys.exit(0) #stänger av programmet med sys
 
 #Skapar en function för att Starta Acceptering
     def startAccepting(self):
@@ -37,14 +38,16 @@ class SocketHandler:
             self.serverSocket.bind(('',int(port)))
         except:
             return "failed"
+        #börjar lyssna
         self.serverSocket.listen()
-
+        #skapar en lista för clients
         self.list_of_known_clientSockets = []
+        #skapar en lista för client adress
         self.list_of_known_clientAddr = []
 
         self.list_of_unknown_clientSockets = []
         self.list_of_unknown_clientAddr = []
-
+        #startar trådet för att börja acceptera
         _thread.start_new_thread(self.startAccepting,())
         return "succeed"
 #en function för att skicka texten och visa på clients chatt fönster
