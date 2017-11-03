@@ -1,5 +1,5 @@
-from Comments.Server.GuiHandler import GuiHandler
-from Comments.Server.SocketHandler import SocketHandler
+from Server.GuiHandler import GuiHandler
+from Server.SocketHandler import SocketHandler
 
 socketHandler = SocketHandler()#skapar ett objekt utav Server.SocketHandler.
 guiHandler = GuiHandler(socketHandler)#skapar ett objekt utav Client.GuiHandler som tar in våran socket som ett argument
@@ -12,4 +12,6 @@ if resultOfBinding == "failed":
     guiHandler.showWarningMsg()#skickar ett varningsmeddelande om det misslyckas
 else:
     guiHandler.startGui()#startar gui
+
+#new comment
 
