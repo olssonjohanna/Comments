@@ -13,5 +13,5 @@ if resultOfBinding == "failed":
 else:
     guiHandler.startGui()#startar gui
 
-#new comment
+#new comment :)
 
