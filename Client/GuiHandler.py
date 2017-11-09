@@ -50,6 +50,7 @@ class GuiHandler:
         self.entryOfUser = tkinter.Entry(self.root)
         self.entryOfUser.grid(row = 1,column = 0)
         self.buttonToTrigg = tkinter.Button(self.root, text = "enter", command = self.sendMsgBySocketHandler)
+        self.root.bind("<Return>", lambda x: self.sendMsgBySocketHandler())
         self.buttonToTrigg.grid(row = 1,column = 1)
 
         self.root.mainloop()#startar en mainloop på chattrutan
@@ -57,6 +58,7 @@ class GuiHandler:
     def sendMsgBySocketHandler(self):#funktion som använder sig utav den socket som har tagits in vid skapandet av den här klassen.
         #den skickar entrien som usern har skrivit via våran socket.
         self.socketHandler.sendMsg(self.entryOfUser.get())
+        self.entryOfUser.delete(0,tkinter.END)
 
     def startIntroGui(self):#En ruta för att logga in och registerera en användare
         self.choiceRoot = tkinter.Tk()

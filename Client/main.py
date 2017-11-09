@@ -1,5 +1,5 @@
-from Client.GuiHandler import GuiHandler
-from Client.SocketHandler import SocketHandler
+from Comments.Client.GuiHandler import GuiHandler
+from Comments.Client.SocketHandler import SocketHandler
 
 socketHandler = SocketHandler() #skapar ett objekt utav Client.SocketHandler som skapar en socket
 guiHandler = GuiHandler(socketHandler)#skapar ett objekt utav Client.GuiHandler som tar in våran socket som ett argument
